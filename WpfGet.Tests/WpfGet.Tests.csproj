@@ -50,10 +50,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Downloader.cs" />
+    <Compile Include="DownloaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WinFormsGet\WinFormsGet.csproj">
+      <Project>{68bea47d-ec85-4de9-a390-fce1d257705e}</Project>
+      <Name>WinFormsGet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WpfGet.Core\WpfGet.Core.csproj">
+      <Project>{0fbb4645-7597-47fa-9b86-a3c481ca0405}</Project>
+      <Name>WpfGet.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WpfGet\WpfGet.csproj">
       <Project>{caa0d6a9-5ea8-4938-afb2-af1556f36711}</Project>
       <Name>WpfGet</Name>

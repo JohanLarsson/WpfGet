@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfGet", "WpfGet\WpfGet.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfGet.Tests", "WpfGet.Tests\WpfGet.Tests.csproj", "{C68721AD-D665-44FF-85B0-B180D4AC8160}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfGet.Core", "WpfGet.Core\WpfGet.Core.csproj", "{0FBB4645-7597-47FA-9B86-A3C481CA0405}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsGet", "WinFormsGet\WinFormsGet.csproj", "{68BEA47D-EC85-4DE9-A390-FCE1D257705E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{C68721AD-D665-44FF-85B0-B180D4AC8160}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C68721AD-D665-44FF-85B0-B180D4AC8160}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C68721AD-D665-44FF-85B0-B180D4AC8160}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FBB4645-7597-47FA-9B86-A3C481CA0405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FBB4645-7597-47FA-9B86-A3C481CA0405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FBB4645-7597-47FA-9B86-A3C481CA0405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FBB4645-7597-47FA-9B86-A3C481CA0405}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68BEA47D-EC85-4DE9-A390-FCE1D257705E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68BEA47D-EC85-4DE9-A390-FCE1D257705E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68BEA47D-EC85-4DE9-A390-FCE1D257705E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68BEA47D-EC85-4DE9-A390-FCE1D257705E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
