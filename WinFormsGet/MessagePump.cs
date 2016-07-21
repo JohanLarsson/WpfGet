@@ -42,7 +42,12 @@ namespace WinFormsGet
         /// <summary>Shutdown the STA thread</summary>
         public void Dispose()
         {
-            Application.Exit();
+            Task.Factory.StartNew(
+                Application.ExitThread,
+                CancellationToken.None,
+                TaskCreationOptions.None,
+                this.scheduler)
+                            .Wait();
             this.thread.Join();
         }
 
