@@ -9,7 +9,7 @@ namespace WinFormsGet
     internal class MessagePump : IDisposable
     {
         private readonly Thread thread;
-        private TaskScheduler scheduler;
+        private SynchronizationContext context;
 
         public MessagePump()
         {
@@ -21,7 +21,7 @@ namespace WinFormsGet
                 idleHandler = (s, e) =>
                 {
                     // handle Application.Idle just once
-                    this.scheduler = TaskScheduler.FromCurrentSynchronizationContext();
+                    this.context = SynchronizationContext.Current;
                     setupComplete.Set();
                     Application.Idle -= idleHandler;
                 };
@@ -42,23 +42,23 @@ namespace WinFormsGet
         /// <summary>Shutdown the STA thread</summary>
         public void Dispose()
         {
-            Task.Factory.StartNew(
-                Application.ExitThread,
-                CancellationToken.None,
-                TaskCreationOptions.None,
-                this.scheduler)
-                            .Wait();
+            this.Send(Application.ExitThread);
             this.thread.Join();
         }
 
-        public Task InvokeAsync(Action action)
+        public void Send(Action action)
         {
-            return Task.Factory.StartNew(action, CancellationToken.None, TaskCreationOptions.None, this.scheduler);
+            this.context.Send(_ => action(), null);
         }
 
-        public Task<TResult> InvokeAsync<TResult>(Func<TResult> action)
+        public void Post<T>(Action<T> action, T state)
         {
-            return Task.Factory.StartNew(action, CancellationToken.None, TaskCreationOptions.None, this.scheduler);
+            this.context.Post(s => action((T) s), state);
+        }
+
+        public void Send<T>(Action<T> action, T state)
+        {
+            this.context.Send(s => action((T)s), state);
         }
     }
 }
