@@ -21,12 +21,13 @@
             Assert.IsTrue(File.Exists(fileName));
         }
 
-        //[TestMethod]
+        [TestMethod]
         public async Task DownloadStringAsyncTest()
         {
             var url = @"https://raw.githubusercontent.com/fsharp/FAKE/f4024fd5b790485828c1cfc002190716eee97597/modules/Octokit/Octokit.fsx";
-            var task = Downloader.DownloadStringAsync(url);
+            var task = WpfGet.Core.Downloader.DownloadStringAsync(url);
             var text = await task.ConfigureAwait(false);
+            Console.Write(text);
         }
 
         [TestMethod]

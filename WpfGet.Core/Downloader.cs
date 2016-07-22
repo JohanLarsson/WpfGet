@@ -1,46 +1,48 @@
 ﻿namespace WpfGet.Core
 {
-    using System.Threading;
     using System.Threading.Tasks;
     using System.Windows.Controls;
-    using System.Windows.Threading;
+    using System.Windows.Navigation;
 
     public static class Downloader
     {
-        public static Task<string> DownloadStringAsync(string urlString)
+        public static async Task<string> DownloadStringAsync(string url)
         {
             var taskCompletionSource = new TaskCompletionSource<string>();
-            using (var browser = new WebBrowser())
+            using (var pump = new MessagePump())
             {
-                //// http://reedcopsey.com/2011/11/28/launching-a-wpf-window-in-a-separate-thread-part-1/
-                //var thread = new Thread(() =>
-                //{
-                //    // Start the Dispatcher Processing
-                //    System.Windows.Threading.Dispatcher.Run();
-                //});
-
-                //// Set the apartment state
-                //thread.SetApartmentState(ApartmentState.STA);
-                //// Make the thread a background thread
-                //thread.IsBackground = true;
-                //// Start the thread
-                //thread.Start();
-
-                browser.LoadCompleted += (o, e) =>
-                {
-                    //Dispatcher.CurrentDispatcher.BeginInvokeShutdown(DispatcherPriority.Background);
-                    taskCompletionSource.SetResult(GetText((WebBrowser)o));
-                };
-
-                browser.Navigate(urlString);
-                return taskCompletionSource.Task;
+                pump.Post(async s => await Navigate(s).ConfigureAwait(false), new UrlAndCompletionSource(url, taskCompletionSource));
+                return await taskCompletionSource.Task.ConfigureAwait(false);
             }
         }
 
-        private static string GetText(WebBrowser webBrowser)
+        private static async Task Navigate(UrlAndCompletionSource state)
         {
-            var document = (mshtml.HTMLDocument)webBrowser.Document;
-            return document.body.innerText;
+            using (var browser = new WebBrowser())
+            {
+                NavigatedEventHandler onNavigated = null;
+                onNavigated = (sender, _) =>
+                {
+                    var b = (WebBrowser)sender;
+                    b.Navigated -= onNavigated;
+                    state.TaskCompletionSource.SetResult(((mshtml.HTMLDocument)b.Document).body.innerText);
+                };
+                browser.Navigated += onNavigated;
+                browser.Navigate(state.Url);
+                await state.TaskCompletionSource.Task.ConfigureAwait(true);
+            }
+        }
+
+        private struct UrlAndCompletionSource
+        {
+            internal readonly string Url;
+            internal readonly TaskCompletionSource<string> TaskCompletionSource;
+
+            public UrlAndCompletionSource(string url, TaskCompletionSource<string> taskCompletionSource)
+            {
+                this.Url = url;
+                this.TaskCompletionSource = taskCompletionSource;
+            }
         }
     }
 }
