@@ -61,13 +61,29 @@ namespace WpfGet.Tests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to namespace WpfGet.Tests.Resources
-        ///{
-        ///    class Foo
-        ///    {
-        ///    }
-        ///}
-        ///.
+        ///   Looks up a localized string similar to #nowarn &quot;211&quot;
+        ///#I __SOURCE_DIRECTORY__
+        ///#I @&quot;../../../../../packages/Octokit/lib/net45&quot;
+        ///#I @&quot;../../packages/Octokit/lib/net45&quot;
+        ///#I @&quot;../../../../../../packages/build/Octokit/lib/net45&quot;
+        ///#r &quot;System.Net.Http&quot;
+        ///#r &quot;Octokit.dll&quot;
+        ///
+        ///open Octokit
+        ///open Octokit.Internal
+        ///open System
+        ///open System.Threading
+        ///open System.Net.Http
+        ///open System.Reflection
+        ///open System.IO
+        ///
+        ///type Draft =
+        ///    { Client : GitHubClient
+        ///      Owner : string
+        ///      Project : string
+        ///      DraftRelease : Release }
+        ///
+        ///// wrapper re-implement [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Octokit_fsx {
             get {

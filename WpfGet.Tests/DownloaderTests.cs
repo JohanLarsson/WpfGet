@@ -16,7 +16,7 @@
         {
             var fileName = @"C:\Temp\Octokit.fsx";
             File.Delete(fileName);
-            var process = Process.Start(Path.Combine(Environment.CurrentDirectory, "WpfGet.exe"), $@"{Url} {fileName}");
+            var process = Process.Start(Path.Combine(Environment.CurrentDirectory, "WpfGet.Ui.exe"), $@"{Url} {fileName}");
             process.WaitForExit();
             Assert.IsTrue(File.Exists(fileName));
             Assert.AreEqual(Properties.Resources.Octokit_fsx, File.ReadAllText(fileName));
@@ -26,7 +26,7 @@
         public async Task DownloadStringAsyncTest()
         {
             var sw = Stopwatch.StartNew();
-            var text = await WpfGet.Core.Downloader.DownloadStringAsync(Url).ConfigureAwait(false);
+            var text = await WpfGet.Downloader.DownloadStringAsync(Url).ConfigureAwait(false);
             sw.Stop();
             Console.WriteLine(sw.Elapsed);
             //Console.Write(text);

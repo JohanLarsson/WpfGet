@@ -1,3 +1,3 @@
-﻿<Application x:Class="WpfGet.App"
+﻿<Application x:Class="WpfGet.Ui.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" />

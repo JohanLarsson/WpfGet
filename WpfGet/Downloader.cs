@@ -1,4 +1,4 @@
-﻿namespace WpfGet.Core
+﻿namespace WpfGet
 {
     using System.Threading.Tasks;
     using System.Windows.Controls;
