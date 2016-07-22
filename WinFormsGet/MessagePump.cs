@@ -2,7 +2,6 @@ namespace WinFormsGet
 {
     using System;
     using System.Threading;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
 
     // based on: http://stackoverflow.com/a/22262976/1069200
@@ -16,20 +15,9 @@ namespace WinFormsGet
             var setupComplete = new ManualResetEvent(false);
             this.thread = new Thread(() =>
             {
-                EventHandler idleHandler = null;
-
-                idleHandler = (s, e) =>
-                {
-                    // handle Application.Idle just once
-                    this.context = SynchronizationContext.Current;
-                    setupComplete.Set();
-                    Application.Idle -= idleHandler;
-                };
-
-                // handle Application.Idle just once
-                // to make sure we're inside the message loop
-                // and SynchronizationContext has been correctly installed
-                Application.Idle += idleHandler;
+                SynchronizationContext.SetSynchronizationContext(new WindowsFormsSynchronizationContext());
+                this.context = SynchronizationContext.Current;
+                setupComplete.Set();
                 Application.Run();
             });
 
