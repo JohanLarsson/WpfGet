@@ -5,7 +5,6 @@
     using System.IO;
     using System.Threading.Tasks;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using WpfGet.Core;
 
     [TestClass]
     public class DownloaderTests
@@ -19,6 +18,7 @@
             var process = Process.Start(Path.Combine(Environment.CurrentDirectory, "WpfGet.exe"), $@"{url} {fileName}");
             process.WaitForExit();
             Assert.IsTrue(File.Exists(fileName));
+            Assert.AreEqual(Properties.Resources.Octokit_fsx, File.ReadAllText(fileName));
         }
 
         [TestMethod]
@@ -28,6 +28,7 @@
             var task = WpfGet.Core.Downloader.DownloadStringAsync(url);
             var text = await task.ConfigureAwait(false);
             Console.Write(text);
+            Assert.AreEqual(Properties.Resources.Octokit_fsx, text);
         }
 
         [TestMethod]
@@ -37,6 +38,7 @@
             var task = WinFormsGet.Downloader.DownloadStringAsync(url);
             var text = await task.ConfigureAwait(false);
             Console.Write(text);
+            Assert.AreEqual(Properties.Resources.Octokit_fsx, text);
         }
     }
 }
