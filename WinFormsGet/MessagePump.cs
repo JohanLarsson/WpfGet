@@ -34,19 +34,14 @@ namespace WinFormsGet
             this.thread.Join();
         }
 
-        public void Send(Action action)
-        {
-            this.context.Send(_ => action(), null);
-        }
-
         public void Post<T>(Action<T> action, T state)
         {
             this.context.Post(s => action((T) s), state);
         }
 
-        public void Send<T>(Action<T> action, T state)
+        private void Send(Action action)
         {
-            this.context.Send(s => action((T)s), state);
+            this.context.Send(_ => action(), null);
         }
     }
 }
