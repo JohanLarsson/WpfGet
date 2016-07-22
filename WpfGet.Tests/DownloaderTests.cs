@@ -3,6 +3,7 @@
     using System;
     using System.Diagnostics;
     using System.IO;
+    using System.Net;
     using System.Threading.Tasks;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -10,6 +11,21 @@
     public class DownloaderTests
     {
         private static readonly string Url = @"https://raw.githubusercontent.com/fsharp/FAKE/f4024fd5b790485828c1cfc002190716eee97597/modules/Octokit/Octokit.fsx";
+
+        [TestMethod]
+        public async Task DownloadStringAsyncReference()
+        {
+            // this may not work if behind a proxy.
+            using (var client = new WebClient())
+            {
+                var sw = Stopwatch.StartNew();
+                var text = await client.DownloadStringTaskAsync(Url).ConfigureAwait(false);
+                sw.Stop();
+                Console.WriteLine(sw.Elapsed);
+                Console.Write(text);
+                Assert.AreEqual(Properties.Resources.Octokit_fsx, text);
+            }
+        }
 
         [TestMethod]
         public void DownloadUsingWindow()
