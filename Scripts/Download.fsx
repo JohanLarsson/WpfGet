@@ -8,6 +8,7 @@ let download (url:string) =
     printfn "%s" url;
     try
       use client = new WebClient()
+      // client.Proxy.Credentials <- System.Net.CredentialCache.DefaultNetworkCredentials
       client.DownloadString url |> ignore
       printfn "Success!";
     with
