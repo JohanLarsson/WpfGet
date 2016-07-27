@@ -1,10 +1,13 @@
-﻿namespace WpfGet.Tests
+﻿namespace Gu.WpfGet.Tests
 {
     using System;
     using System.Diagnostics;
     using System.IO;
     using System.Net;
     using System.Threading.Tasks;
+
+    using Gu.WpfGet;
+
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
@@ -42,7 +45,7 @@
         public async Task DownloadStringAsyncTest()
         {
             var sw = Stopwatch.StartNew();
-            var text = await WpfGet.Downloader.DownloadStringAsync(Url).ConfigureAwait(false);
+            var text = await Downloader.DownloadStringAsync(Url).ConfigureAwait(false);
             sw.Stop();
             Console.WriteLine(sw.Elapsed);
             //Console.Write(text);
@@ -53,7 +56,7 @@
         public async Task WinformsDownloadStringAsyncTest()
         {
             var sw = Stopwatch.StartNew();
-            var text = await WinFormsGet.Downloader.DownloadStringAsync(Url).ConfigureAwait(false);
+            var text = await Gu.WinFormsGet.Downloader.DownloadStringAsync(Url).ConfigureAwait(false);
             sw.Stop();
             Console.WriteLine(sw.Elapsed);
             //Console.Write(text);

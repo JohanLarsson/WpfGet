@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WpfGet")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Gu.WpfGet")]
+[assembly: AssemblyDescription("Hack for downloading from behind proxy.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WpfGet")]
+[assembly: AssemblyCompany("Johan Larsson")]
+[assembly: AssemblyProduct("Gu.WpfGet")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

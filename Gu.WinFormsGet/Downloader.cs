@@ -1,4 +1,4 @@
-namespace WinFormsGet
+namespace Gu.WinFormsGet
 {
     using System.Threading.Tasks;
     using System.Windows.Forms;

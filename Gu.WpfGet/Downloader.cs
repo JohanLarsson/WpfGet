@@ -1,4 +1,4 @@
-﻿namespace WpfGet
+﻿namespace Gu.WpfGet
 {
     using System.Threading.Tasks;
     using System.Windows.Controls;

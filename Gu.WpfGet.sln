@@ -3,18 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfGet", "WpfGet\WpfGet.csproj", "{CAA0D6A9-5EA8-4938-AFB2-AF1556F36711}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfGet.Tests", "WpfGet.Tests\WpfGet.Tests.csproj", "{C68721AD-D665-44FF-85B0-B180D4AC8160}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsGet", "WinFormsGet\WinFormsGet.csproj", "{68BEA47D-EC85-4DE9-A390-FCE1D257705E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfGet.Ui", "WpfGet.Ui\WpfGet.Ui.csproj", "{2A32ED83-2F41-4AAD-8CD9-DF2DEADAA00F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{96F31529-32BA-4365-AEA2-A07FC9E2494F}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+		paket.lock = paket.lock
+		.paket\Readme.paket.md = .paket\Readme.paket.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script", "Script", "{9337A691-C772-4676-9AED-4FD05199F4A8}"
 	ProjectSection(SolutionItems) = preProject
 		Scripts\Download.fsx = Scripts\Download.fsx
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gu.WinFormsGet", "Gu.WinFormsGet\Gu.WinFormsGet.csproj", "{68BEA47D-EC85-4DE9-A390-FCE1D257705E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gu.WpfGet", "Gu.WpfGet\Gu.WpfGet.csproj", "{CAA0D6A9-5EA8-4938-AFB2-AF1556F36711}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gu.WpfGet.Tests", "Gu.WpfGet.Tests\Gu.WpfGet.Tests.csproj", "{C68721AD-D665-44FF-85B0-B180D4AC8160}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gu.WpfGet.Ui", "Gu.WpfGet.Ui\Gu.WpfGet.Ui.csproj", "{2A32ED83-2F41-4AAD-8CD9-DF2DEADAA00F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,6 +29,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68BEA47D-EC85-4DE9-A390-FCE1D257705E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68BEA47D-EC85-4DE9-A390-FCE1D257705E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68BEA47D-EC85-4DE9-A390-FCE1D257705E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68BEA47D-EC85-4DE9-A390-FCE1D257705E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CAA0D6A9-5EA8-4938-AFB2-AF1556F36711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CAA0D6A9-5EA8-4938-AFB2-AF1556F36711}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAA0D6A9-5EA8-4938-AFB2-AF1556F36711}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -30,10 +41,6 @@ Global
 		{C68721AD-D665-44FF-85B0-B180D4AC8160}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C68721AD-D665-44FF-85B0-B180D4AC8160}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C68721AD-D665-44FF-85B0-B180D4AC8160}.Release|Any CPU.Build.0 = Release|Any CPU
-		{68BEA47D-EC85-4DE9-A390-FCE1D257705E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{68BEA47D-EC85-4DE9-A390-FCE1D257705E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{68BEA47D-EC85-4DE9-A390-FCE1D257705E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{68BEA47D-EC85-4DE9-A390-FCE1D257705E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2A32ED83-2F41-4AAD-8CD9-DF2DEADAA00F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2A32ED83-2F41-4AAD-8CD9-DF2DEADAA00F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A32ED83-2F41-4AAD-8CD9-DF2DEADAA00F}.Release|Any CPU.ActiveCfg = Release|Any CPU

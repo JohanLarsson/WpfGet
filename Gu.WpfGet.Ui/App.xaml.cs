@@ -1,4 +1,4 @@
-﻿namespace WpfGet.Ui
+﻿namespace Gu.WpfGet.Ui
 {
     using System.Windows;
 
